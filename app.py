@@ -1,6 +1,5 @@
 from flask import Flask
-from flask import jsonify
-import subprocess
+import robot
 
 
 app = Flask(__name__)
@@ -13,12 +12,13 @@ def hello_world():
 
 @app.route('/api/<direction>/<speed>')
 def move_request(direction,speed):
+    robot.move(direction,speed)
     return direction
 
 
 @app.route('/api/camera/<state>')
 def camera_request(state):
-    subprocess.run(["raspi-live", state])
+    robot.camera(state)
     return state
 
 
