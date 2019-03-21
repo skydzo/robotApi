@@ -10,7 +10,7 @@ def hello_world():
     return 'Hello World!'
 
 
-@app.route('/<direction>/<speed>', methods = ['GET', 'POST'])
+@app.route('/<string:direction>/<int:speed>', methods = ['GET', 'POST'])
 def move_request(direction, speed):
     robot.move(direction, speed)
     return direction
