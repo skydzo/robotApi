@@ -10,13 +10,13 @@ def hello_world():
     return 'Hello World!'
 
 
-@app.route('/api/<direction>/<speed>')
+@app.route('/<direction>/<speed>')
 def move_request(direction,speed):
     robot.move(direction,speed)
     return direction
 
 
-@app.route('/api/camera/<state>')
+@app.route('/camera/<state>')
 def camera_request(state):
     robot.camera(state)
     return state
