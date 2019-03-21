@@ -1,5 +1,6 @@
 from gpiozero import Robot
 import subprocess
+import os
 
 
 robot = Robot(left=(8, 7), right=(9, 10))
@@ -20,6 +21,8 @@ def move(direction, speed):
 
 def camera(state):
     if state == "start":
-        subprocess.check_call(["raspi-live", "start"], shell=True)
+        os.system('raspi-live start')
+        subprocess.call(['raspi-live', 'start'], shell=True)
     if state == "stop":
-        subprocess.check_call(["raspi-live", "stop"], shell=True)
+        os.system('raspi-live stop')
+        subprocess.call(['raspi-live', 'stop'], shell=True)
