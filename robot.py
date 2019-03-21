@@ -26,9 +26,3 @@ def camera(state):
     if state == "stop":
         os.system('raspi-live stop')
         subprocess.call(['raspi-live', 'stop'], shell=True)
-
-
-def camera2(state):
-    process = subprocess.Popen(['raspi-live', 'start'], shell=True, stdout=subprocess.PIPE)
-    process.wait()
-    print process.returncode

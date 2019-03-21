@@ -18,7 +18,7 @@ def move_request(direction, speed):
 
 @app.route('/camera/<state>', methods = ['GET', 'POST'])
 def camera_request(state):
-    robot.camera2(state)
+    robot.camera(state)
     return state
 
 
