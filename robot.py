@@ -20,6 +20,6 @@ def move(direction, speed):
 
 def camera(state):
     if state == "start":
-        subprocess.call(["raspi-live", state])
+        subprocess.check_call(["raspi-live", "start"], shell=True)
     if state == "stop":
-        subprocess.call(["raspi-live", state])
+        subprocess.check_call(["raspi-live", "stop"], shell=True)
