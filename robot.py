@@ -21,6 +21,6 @@ def move(direction, speed):
 
 def camera(state):
     if state == "start":
-        os.system('/bin/sh /var/www/html/robotApi/runCamera.sh')
+        os.system('sudo /bin/sh /var/www/html/robotApi/runCamera.sh pi')
     if state == "stop":
-        os.system('/bin/sh /var/www/html/robotApi/stopCamera.sh')
+        os.system('sudo /bin/sh /var/www/html/robotApi/stopCamera.sh')
