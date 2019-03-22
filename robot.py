@@ -21,7 +21,7 @@ def move(direction, speed):
 
 def camera(state):
     if state == "start":
-        subprocess.call(['sh', 'runCamera.sh'])
+        subprocess.call(['sh', '/var/www/html/robotApi/runCamera.sh'])
     if state == "stop":
-        subprocess.call(['sh', 'stopCamera.sh'])
+        subprocess.call(['sh', '/var/www/html/robotApi/stopCamera.sh'])
 
