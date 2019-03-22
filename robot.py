@@ -21,8 +21,7 @@ def move(direction, speed):
 
 def camera(state):
     if state == "start":
-        subprocess.Popen(['raspi-live', 'start', '&'])
-        subprocess.Popen(['ffmpeg', '-re', '-i', 'pipe:0', '-y', '-an', '-vcodec', 'copy', '-f', 'hls', '-hls_time', '2', '-hls_list_size', '10', '-hls_delete_threshold', '10', '-hls_flags', 'split_by_time+delete_segments+second_level_segment_index', '-strftime', '1', '-hls_segment_filename', '/home/pi/camera/%s-%%d.m4s', '-hls_segment_type', 'fmp4', '/home/pi/camera/livestream.m3u8'])
+        subprocess.call(['sh', 'runCamera.sh'])
     if state == "stop":
-        subprocess.Popen(['raspi-live', 'stop'])
+        subprocess.call(['sh', 'stopCamera.sh'])
 
