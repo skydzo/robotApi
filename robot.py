@@ -21,8 +21,14 @@ def move(direction, speed):
 
 def camera(state):
     if state == "start":
-        p = subprocess.Popen(['raspi-live', 'start'])
-        p.wait()
+        proc = subprocess.Popen(['raspi-live', 'start'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        o, e = proc.communicate()
+        print('Output: ' + o.decode('ascii'))
+        print('Error: ' + e.decode('ascii'))
+        print('code: ' + str(proc.returncode))
     if state == "stop":
-        p = subprocess.Popen(['pkill', 'raspi-live'])
-        p.wait()
+        proc = subprocess.Popen(['pkill', 'raspi-live'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        o, e = proc.communicate()
+        print('Output: ' + o.decode('ascii'))
+        print('Error: ' + e.decode('ascii'))
+        print('code: ' + str(proc.returncode))
