@@ -21,7 +21,8 @@ def move(direction, speed):
 
 def camera(state):
     if state == "start":
-        subprocess.Popen(["bash", "/var/www/html/robotApi/runCamera.sh"])
+        p = subprocess.Popen(['raspi-live', 'start'])
+        p.wait()
     if state == "stop":
-        subprocess.Popen(["bash", "/var/www/html/robotApi/stopCamera.sh"])
-
+        p = subprocess.Popen(['pkill', 'raspi-live'])
+        p.wait()
