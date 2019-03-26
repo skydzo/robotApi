@@ -37,13 +37,13 @@ def hello_world():
 
 @app.route('/<string:direction>/<int:speed>', methods = ['GET', 'POST'])
 def move_request(direction, speed):
-    robot.move(direction, speed)
+    move(direction, speed)
     return direction
 
 
 @app.route('/camera/<state>', methods = ['GET', 'POST'])
 def camera_request(state):
-    robot.camera(state)
+    camera(state)
     return state
 
 
