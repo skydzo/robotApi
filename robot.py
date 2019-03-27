@@ -24,8 +24,3 @@ class Robobo:
             os.system('sudo /bin/sh /var/www/html/robotApi/runCamera.sh pi')
         if state == "stop":
             os.system('sudo /bin/sh /var/www/html/robotApi/stopCamera.sh')
-
-
-if __name__ == '__main__':
-    robot = Robot(left=(8, 7), right=(9, 10))
-    robot.stop()
