@@ -2,7 +2,7 @@ from gpiozero import Robot
 import os
 
 
-class APIRobot:
+class robot:
 
     def __init__(self):
         self.robot = Robot(left=(8, 7), right=(9, 10))
