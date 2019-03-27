@@ -1,35 +1,10 @@
 from flask import Flask
-from gpiozero import Robot
-import os
-# import robot
+import robot
 
 
 app = Flask(__name__)
 
-
-robot = Robot(left=(8, 7), right=(9, 10))
-
-
-def move(direction, speed):
-    global robot
-    if direction == "forward":
-        robot.forward()
-    if direction == "backward":
-        robot.backward()
-    if direction == "left":
-        robot.left()
-    if direction == "right":
-        robot.right()
-    if direction == "stop":
-        robot.stop()
-
-
-def camera(state):
-    global robot
-    if state == "start":
-        os.system('sudo /bin/sh /var/www/html/robotApi/runCamera.sh pi')
-    if state == "stop":
-        os.system('sudo /bin/sh /var/www/html/robotApi/stopCamera.sh')
+robby = robot()
 
 
 @app.route('/')
@@ -40,14 +15,14 @@ def hello_world():
 @app.route('/<string:direction>/<int:speed>', methods = ['GET', 'POST'])
 def move_request(direction, speed):
     global robot
-    move(direction, speed)
+    robby.move(direction, speed)
     return direction
 
 
 @app.route('/camera/<state>', methods = ['GET', 'POST'])
 def camera_request(state):
     global robot
-    camera(state)
+    robby.camera(state)
     return state
 
 
