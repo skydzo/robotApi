@@ -3,7 +3,6 @@ from robot import Robobo
 
 
 app = Flask(__name__)
-
 robby = Robobo()
 
 
