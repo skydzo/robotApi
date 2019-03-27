@@ -2,14 +2,10 @@ from gpiozero import Robot
 import os
 
 
-class robot:
+class Robobo:
 
     def __init__(self):
         self.robot = Robot(left=(8, 7), right=(9, 10))
-        # web variables
-        self.vitesseWeb = 500
-        # self.virage = -10
-        self.stopLooping = False
 
     def move(direction, speed):
         if direction == "forward":

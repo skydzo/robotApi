@@ -1,10 +1,10 @@
 from flask import Flask
-from robot import robot
+from robot import Robobo
 
 
 app = Flask(__name__)
 
-robby = robot()
+robby = Robobo()
 
 
 @app.route('/')
