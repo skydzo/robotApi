@@ -27,5 +27,5 @@ class Robobo:
 
 
 if __name__ == '__main__':
-    robot = Robot()
+    robot = Robot(left=(8, 7), right=(9, 10))
     robot.stop()
