@@ -7,19 +7,19 @@ class Robobo:
     def __init__(self):
         self.robot = Robot(left=(8, 7), right=(9, 10))
 
-    def move(direction, speed):
+    def move(self, direction, speed):
         if direction == "forward":
-            robot.forward()
+            self.robot.forward()
         if direction == "backward":
-            robot.backward()
+            self.robot.backward()
         if direction == "left":
-            robot.left()
+            self.robot.left()
         if direction == "right":
-            robot.right()
+            self.robot.right()
         if direction == "stop":
-            robot.stop()
+            self.robot.stop()
 
-    def camera(state):
+    def camera(self, state):
         if state == "start":
             os.system('sudo /bin/sh /var/www/html/robotApi/runCamera.sh pi')
         if state == "stop":
