@@ -11,6 +11,7 @@ robot = Robot(left=(8, 7), right=(9, 10))
 
 
 def move(direction, speed):
+    global robot
     if direction == "forward":
         robot.forward()
     if direction == "backward":
@@ -24,6 +25,7 @@ def move(direction, speed):
 
 
 def camera(state):
+    global robot
     if state == "start":
         os.system('sudo /bin/sh /var/www/html/robotApi/runCamera.sh pi')
     if state == "stop":
@@ -37,12 +39,14 @@ def hello_world():
 
 @app.route('/<string:direction>/<int:speed>', methods = ['GET', 'POST'])
 def move_request(direction, speed):
+    global robot
     move(direction, speed)
     return direction
 
 
 @app.route('/camera/<state>', methods = ['GET', 'POST'])
 def camera_request(state):
+    global robot
     camera(state)
     return state
 
