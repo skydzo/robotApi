@@ -1,5 +1,5 @@
 from flask import Flask
-import robot
+from robot import robot
 
 
 app = Flask(__name__)
@@ -14,14 +14,14 @@ def hello_world():
 
 @app.route('/<string:direction>/<int:speed>', methods = ['GET', 'POST'])
 def move_request(direction, speed):
-    global robot
+    global robby
     robby.move(direction, speed)
     return direction
 
 
 @app.route('/camera/<state>', methods = ['GET', 'POST'])
 def camera_request(state):
-    global robot
+    global robby
     robby.camera(state)
     return state
 
