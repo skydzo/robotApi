@@ -8,10 +8,14 @@ class Robobo:
     def __init__(self):
         self.robot = Robot(left=(8, 7), right=(9, 10))
         self.sensor = DistanceSensor(15, 18)
+        self.direction = "forward"
 
     def move(self, direction, speed):
+        self.direction = direction
         if direction == "forward":
-            self.robot.forward()
+            dist = self.getDistance()
+            if dist > 20:
+                self.robot.forward()
         if direction == "backward":
             self.robot.backward()
         if direction == "left":
@@ -28,8 +32,8 @@ class Robobo:
             os.system('sudo /bin/sh /var/www/html/robotApi/stopCamera.sh')
 
     def getDistance(self):
-        if (self.sensor.distance * 10) < 4:
+        if self.direction == "forward" and self.sensor.distance < 20:
             self.robot.stop()
-            return self.sensor.distance * 10
-        return self.sensor.distance * 10
+            return round(self.sensor.distance * 100, 1)
+        return round(self.sensor.distance * 100, 1)
 
