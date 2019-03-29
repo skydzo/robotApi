@@ -32,7 +32,7 @@ class Robobo:
             os.system('sudo /bin/sh /var/www/html/robotApi/stopCamera.sh')
 
     def getDistance(self):
-        if self.direction == "forward" and self.sensor.distance < 20:
+        if self.direction == "forward" and round(self.sensor.distance * 100, 1) < 20:
             self.robot.stop()
             return round(self.sensor.distance * 100, 1)
         return round(self.sensor.distance * 100, 1)
