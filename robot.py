@@ -28,8 +28,8 @@ class Robobo:
             os.system('sudo /bin/sh /var/www/html/robotApi/stopCamera.sh')
 
     def getDistance(self):
-        if (self.sensor.distance * 100) < 4:
+        if (self.sensor.distance * 10) < 4:
             self.robot.stop()
-            return self.sensor.distance * 100
-        return self.sensor.distance * 100
+            return self.sensor.distance * 10
+        return self.sensor.distance * 10
 
