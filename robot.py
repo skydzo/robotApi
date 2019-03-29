@@ -7,7 +7,7 @@ class Robobo:
 
     def __init__(self):
         self.robot = Robot(left=(8, 7), right=(9, 10))
-        self.sensor = DistanceSensor(23, 24)
+        self.sensor = DistanceSensor(15, 18)
 
     def move(self, direction, speed):
         if direction == "forward":
