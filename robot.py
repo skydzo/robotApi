@@ -30,5 +30,6 @@ class Robobo:
     def getDistance(self):
         if self.sensor.distance*100 < 4:
             self.robot.stop()
+            return self.sensor.distance * 100
         return self.sensor.distance*100
 
