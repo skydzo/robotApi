@@ -1,4 +1,5 @@
 from gpiozero import Robot
+from gpiozero import DistanceSensor
 import os
 
 
@@ -6,6 +7,7 @@ class Robobo:
 
     def __init__(self):
         self.robot = Robot(left=(8, 7), right=(9, 10))
+        self.sensor = DistanceSensor(23, 24)
 
     def move(self, direction, speed):
         if direction == "forward":
@@ -24,3 +26,9 @@ class Robobo:
             os.system('sudo /bin/sh /var/www/html/robotApi/runCamera.sh pi')
         if state == "stop":
             os.system('sudo /bin/sh /var/www/html/robotApi/stopCamera.sh')
+
+    def getDistance(self):
+        if self.sensor.distance < 4:
+            self.robot.stop()
+        return self.sensor.distance
+

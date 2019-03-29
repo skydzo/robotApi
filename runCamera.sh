@@ -1,2 +1,2 @@
 #!/bin/bash
-raspi-live start -w 640 -h 480 -r 20 -t 0.5 -l 1 > /dev/null &
+raspi-live start -f dash -w 640 -h 480 -r 20 -t .5 -l 10 -s 20 > /dev/null &

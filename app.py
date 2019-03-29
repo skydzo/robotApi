@@ -25,5 +25,12 @@ def camera_request(state):
     return state
 
 
+@app.route('/distance', methods = ['GET', 'POST'])
+def distance(state):
+    global robby
+    robby.getDistance(state)
+    return state
+
+
 if __name__ == '__main__':
     app.run()
