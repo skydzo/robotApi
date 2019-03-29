@@ -29,7 +29,7 @@ def camera_request(state):
 def distance():
     global robby
     distance = robby.getDistance()
-    return distance
+    return str(distance)
 
 
 if __name__ == '__main__':
