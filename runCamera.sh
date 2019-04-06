@@ -1,2 +1,2 @@
 #!/bin/bash
-python3 startCamera.py &
+python3 /var/www/html/robotApi/startCamera.py &
