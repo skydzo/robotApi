@@ -1,2 +1,2 @@
 #!/bin/sh
-pkill raspi-live
+pkill python3
