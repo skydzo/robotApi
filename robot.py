@@ -9,6 +9,7 @@ class Robobo:
         self.robot = Robot(left=(8, 7), right=(9, 10))
         self.sensor = DistanceSensor(15, 18)
         self.direction = "forward"
+        self.isCameraActive = 0
 
     def move(self, direction, speed):
         self.direction = direction
@@ -25,11 +26,16 @@ class Robobo:
         if direction == "stop":
             self.robot.stop()
 
+    def getCameraStatus(self):
+        return self.isCameraActive
+
     def camera(self, state):
         if state == "start":
             os.system('sudo /bin/sh /var/www/html/robotApi/runCamera.sh pi')
+            self.isCameraActive = 1
         if state == "stop":
             os.system('sudo /bin/sh /var/www/html/robotApi/stopCamera.sh pi')
+            self.isCameraActive = 0
 
     def getDistance(self):
         if self.direction == "forward" and round(self.sensor.distance * 100, 1) < 20:
