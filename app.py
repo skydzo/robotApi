@@ -19,9 +19,10 @@ def move_request(direction, speed):
 
 
 @app.route('/camera', methods = ['GET', 'POST'])
-def get_camera_status_request(state):
+def get_camera_status_request():
     global robby
-    return str(robby.getCameraStatus())
+    cameraState = robby.getCameraStatus()
+    return str(cameraState)
 
 
 @app.route('/camera/<state>', methods = ['GET', 'POST'])
