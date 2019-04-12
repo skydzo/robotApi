@@ -6,7 +6,7 @@ import os
 class Robobo:
 
     def __init__(self):
-        self.robot = Robot(left=(8, 7), right=(9, 10))
+        self.robot = Robot(left=(7, 8), right=(10, 9))
         self.sensor = DistanceSensor(15, 18)
         self.direction = "forward"
         self.isCameraActive = 0
